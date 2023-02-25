@@ -9,10 +9,11 @@ module LaserMorse_Top #(parameter CLK_SPEED=16_000_000)
     output LED,
     output USBPU,  // USB pull-up resistor
 
-  input  PIN_24, // Multipliers
-	input  PIN_23,
-	input  PIN_22,
-	input  PIN_21,
+// Multipliers
+  input  PIN_24, // * 1
+	input  PIN_23, // * 10
+	input  PIN_22, // * 1_000
+	input  PIN_21, // * 1_000_000
 
   input  PIN_19, // Speed
 	input  PIN_18,
@@ -22,14 +23,14 @@ module LaserMorse_Top #(parameter CLK_SPEED=16_000_000)
 	input  PIN_14
     );
 
-    wire unitClock;
+  wire unitClock;
 
-    wire ledOnOff;
-    wire isDash;
+  wire ledOnOff;
+  wire isDash;
 
-    localparam IDLE             = 0; // Default state
-  	localparam DOT				= 1;
-    localparam DASH				= 2;
+  localparam IDLE       = 0; // Default state
+  localparam DOT				= 1;
+  localparam DASH				= 2;
 
     UnitGenerator unit(.CLK(CLK),
                         .UnitClock(unitClock),
