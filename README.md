@@ -24,3 +24,22 @@ then
 ```
 brew install icarus-verilog
 ```
+
+
+
+
+## I2C Version Proposal
+
+We could make an I2C Core and expose our inputs as a set of messages
+
+- Set mode
+    - Send a message
+    - Set Clock Speed
+    - get clock speed
+    - reset to default message
+    - read message out
+    - read more out
+        - value (dot, dash, no value)
+        - enableLaser (if dot or dash)
+    
+    
